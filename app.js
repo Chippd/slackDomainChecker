@@ -37,7 +37,7 @@ app.post('/', function (req, res) {
 
 			//loop over the result object
 			for (var key in result.body) {
-			  if (result.hasOwnProperty(key)) {
+			  if (result.body.hasOwnProperty(key)) {
 
 			  	//create the attachment object
 			  	var attachment = {};
