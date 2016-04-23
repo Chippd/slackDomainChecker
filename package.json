@@ -1,0 +1,14 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "slash command bot for slack, will check domain availability",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Chris Dermody",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
