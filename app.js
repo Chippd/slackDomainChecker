@@ -15,20 +15,47 @@ app.listen(process.env.PORT || 3000, function () {
 app.use(bodyParser());
 
 app.post('/', function (req, res) {
-	// console.log('req is',req.body.text);
+
+	//create the object to be returned on successful lookup
+	var responseObj ={
+		"text": "Domain Lookup complete",
+		"attachments":[]
+	}
+
+	//store colours in variables for use later
+	var green = "#36a64f";
+	var red = "#F44336";
+
 	//Use unirest to make the get request to our api
 	//Note: we'll concatenate the query to the url (that's our domain name)
 	unirest.get("https://domainsearch.p.mashape.com/index.php?name="+req.body.text)
-	.header("X-Mashape-Key", "l23VwmZ13TmshvRxySx2Bha4vG7vp1kC8mmjsnIgNGHmgpWcYn")
-	.header("Accept", "application/json")
-	.end(function (result) {
-	  //console.log(result.status, result.headers, result.body);
+		.header("X-Mashape-Key", "l23VwmZ13TmshvRxySx2Bha4vG7vp1kC8mmjsnIgNGHmgpWcYn")
+		.header("Accept", "application/json")
+		.end(function (result) {
 
-	  //Stringify the result.body JSON and return it to the user
-	  var responseText = JSON.stringify(result.body);
+			//loop over the result object
+			for (var key in result) {
+			  if (result.hasOwnProperty(key)) {
 
-	  res.send(responseText);
+			  	//create the attachment object
+			  	var attachment = {};
+
+			  	//store the domain availability in variable for use later
+			  	var availability = result[key];
+
+			  	//set fallback and title to same value, with happy or sad face based on availability
+			  	attachment.fallback = attachment.title = key+" is "+ availability + ((availability === "Available") ? " :)":" :(");
+
+			  	//set color to red or green based on availability
+			  	attachment.color = (availability === "Available") ? green:red;
+
+			  	//push attachment to attachments array in responsObject
+			  	responseObj.attachments.push(attachment);
+			  }
+			}
+
+		//send the response object
+	  res.send(responseObj);
 
 	});
-  //res.send('Received POST request, check your logs');
 });
