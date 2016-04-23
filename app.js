@@ -51,6 +51,8 @@ app.post('/', function (req, res) {
 			  	//set color to red or green based on availability
 			  	attachment.color = (availability === "Available") ? green:red;
 
+			  	console.log('attachment is', attachment);
+
 			  	//push attachment to attachments array in responsObject
 			  	responseObj.attachments.push(attachment);
 			  }
