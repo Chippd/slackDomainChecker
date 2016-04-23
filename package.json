@@ -4,7 +4,8 @@
   "description": "slash command bot for slack, will check domain availability",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node app.js"
   },
   "author": "Chris Dermody",
   "license": "ISC",
