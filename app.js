@@ -11,9 +11,10 @@ app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
+app.use(express.bodyParser());
 
 app.post('/', function (req, res) {
-	console.log('req is',req.body);
+	console.log('req is',req.body.text);
 	//Use unirest to make the get request to our api
 	//Note: we'll concatenate the req to the url (that's our domain name)
 	// unirest.get("https://domainsearch.p.mashape.com/index.php?name="+req)
