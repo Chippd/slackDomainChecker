@@ -33,10 +33,10 @@ app.post('/', function (req, res) {
 		.header("Accept", "application/json")
 		.end(function (result) {
 
-			console.log(result);
+			console.log(result.body);
 
 			//loop over the result object
-			for (var key in result) {
+			for (var key in result.body) {
 			  if (result.hasOwnProperty(key)) {
 
 			  	//create the attachment object
