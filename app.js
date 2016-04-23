@@ -22,8 +22,11 @@ app.post('/', function (req, res) {
 	.header("X-Mashape-Key", "l23VwmZ13TmshvRxySx2Bha4vG7vp1kC8mmjsnIgNGHmgpWcYn")
 	.header("Accept", "application/json")
 	.end(function (result) {
-	  console.log(result.status, result.headers, result.body);
+	  //console.log(result.status, result.headers, result.body);
+
+	  //Stringify the result.body JSON and return it to the user
+	  var responseText = JSON.stringify(result.body);
 
 	});
-  res.send('Received POST request, check your logs');
+  //res.send('Received POST request, check your logs');
 });
