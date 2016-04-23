@@ -27,6 +27,8 @@ app.post('/', function (req, res) {
 	  //Stringify the result.body JSON and return it to the user
 	  var responseText = JSON.stringify(result.body);
 
+	  res.send(responseText);
+
 	});
   //res.send('Received POST request, check your logs');
 });
