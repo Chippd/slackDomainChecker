@@ -12,7 +12,7 @@ app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
-app.use(express.bodyParser());
+app.use(bodyParser());
 
 app.post('/', function (req, res) {
 	console.log('req is',req.body.text);
