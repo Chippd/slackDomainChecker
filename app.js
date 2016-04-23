@@ -13,7 +13,7 @@ app.listen(process.env.PORT || 3000, function () {
 
 
 app.post('/', function (req, res) {
-	console.log('req is':req)
+	console.log('req is',req);
 	//Use unirest to make the get request to our api
 	//Note: we'll concatenate the req to the url (that's our domain name)
 	// unirest.get("https://domainsearch.p.mashape.com/index.php?name="+req)
