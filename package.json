@@ -2,6 +2,9 @@
   "name": "myapp",
   "version": "1.0.0",
   "description": "slash command bot for slack, will check domain availability",
+  "engines": {
+    "node": "4.4.3"
+  },
   "main": "app.js",
   "scripts": {
     "test": "test",
