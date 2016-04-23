@@ -33,6 +33,8 @@ app.post('/', function (req, res) {
 		.header("Accept", "application/json")
 		.end(function (result) {
 
+			console.log(result);
+
 			//loop over the result object
 			for (var key in result) {
 			  if (result.hasOwnProperty(key)) {
