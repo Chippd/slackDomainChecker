@@ -43,7 +43,7 @@ app.post('/', function (req, res) {
 			  	var attachment = {};
 
 			  	//store the domain availability in variable for use later
-			  	var availability = result[key];
+			  	var availability = result.body[key];
 
 			  	//set fallback and title to same value, with happy or sad face based on availability
 			  	attachment.fallback = attachment.title = key+" is "+ availability + ((availability === "Available") ? " :)":" :(");
