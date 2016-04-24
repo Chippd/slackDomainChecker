@@ -53,8 +53,13 @@ app.post('/', function (req, res) {
 
 			  	console.log('attachment is', attachment);
 
-			  	//push attachment to attachments array in responsObject
-			  	responseObj.attachments.push(attachment);
+			  	//push or unshift attachment to attachments array in responsObject depending on availability
+			  	if(availability === "Available"){
+			  		responseObj.attachments.unshift(attachment);
+			  	} else {
+			  		responseObj.attachments.push(attachment);
+			  	}
+			  	
 			  }
 			}
 
