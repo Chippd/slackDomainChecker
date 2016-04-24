@@ -46,7 +46,7 @@ app.post('/', function (req, res) {
 			  	var availability = result.body[key];
 
 			  	//set fallback and title to same value, with happy or sad face based on availability
-			  	attachment.fallback = attachment.title = key+" is "+ availability + ((availability === "Available") ? " :smiley:":" :disappointed:");
+			  	attachment.fallback = attachment.title = key+" is "+ availability + ((availability === "Available") ? " :white_check_mark:":" :x:");
 
 			  	//set color to red or green based on availability
 			  	attachment.color = (availability === "Available") ? green:red;
